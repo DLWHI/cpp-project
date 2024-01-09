@@ -58,7 +58,7 @@ if "%1" equ "install" (
 )
 
 if "%1" equ "memcheck" (
-    cmake --install %BUILD_PREFIX% --config %BUILD_TYPE% --target %TARGET_NAME%;
+    cmake --build %BUILD_PREFIX% --config %BUILD_TYPE% --target unit_tests;
     pushd %BUILD_PREFIX%
         ctest -T memcheck
     popd

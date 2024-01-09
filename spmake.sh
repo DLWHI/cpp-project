@@ -41,6 +41,7 @@ elif [ $1 = "test" ]; then
 elif [ $1 = "install" ]; then
     cmake --install ${BUILD_PREFIX} --config ${BUILD_TYPE} --target ${TARGET_NAME};
 elif [ $1 = "memcheck" ]; then
+    cmake --build ${BUILD_PREFIX} --config ${BUILD_TYPE} --target unit_tests;
     cd ${BUILD_PREFIX} && ctest -T memcheck
 elif [ $1 = "clean" ]; then
     rm -rf ${BUILD_PREFIX}

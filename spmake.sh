@@ -1,6 +1,7 @@
 #!/bin/sh
 if [ $# -ne 1 ]; then
-    echp "spmake: no action specified"
+    echo "spmake: no action specified";
+    exit 1;
 fi
 
 . ./project.cfg;
@@ -14,9 +15,9 @@ if [ $1 = "init" ]; then
           -DCMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS_RELEASE} -std=c++${STD}" \
           -DCMAKE_CXX_FLAGS_ASAN="${CXXFLAGS_ASAN} -std=c++${STD}";
 elif [ $1 = "build" ]; then
-    cmake --build ${BUILD_PREFIX} --config ${BUILD_TYPE} --target ${TARGET_NAME}
+    cmake --build ${BUILD_PREFIX} --config ${BUILD_TYPE} --target ${TARGET_NAME};
 elif [ $1 = "test" ]; then
-    cmake --build ${BUILD_PREFIX} --config ${BUILD_TYPE} --target unit_tests
+    cmake --build ${BUILD_PREFIX} --config ${BUILD_TYPE} --target unit_tests;
 elif [ $1 = "clean" ]; then
     rm -rf ${BUILD_PREFIX}
 fi;

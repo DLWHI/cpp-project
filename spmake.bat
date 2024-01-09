@@ -16,8 +16,11 @@ if "%1" equ "init" (
           -DCMAKE_CONFIGURATION_TYPES=%CMAKE_CONFIGURATIONS% ^
           -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
           -DCMAKE_CXX_FLAGS_DEBUG="%CXXFLAGS_DEBUG% -std=c++%STD%" ^
-          -DCMAKE_CXX_FLAGS_RELEASE="%CXXFLAGS_RELEASE% -std=c++%STD%" ^
-          -DCMAKE_CXX_FLAGS_ASAN="%CXXFLAGS_ASAN% -std=c++%STD%";
+          -DCMAKE_EXE_LINKER_FLAGS_DEBUG="%LD_FLAGS_DEBUG%" ^
+          -DCMAKE_CXX_FLAGS_RELEASE="%CXX_FLAGS_RELEASE% -std=c++%STD%" ^
+          -DCMAKE_EXE_LINKER_FLAGS_RELEASE="%LD_FLAGS_RELEASE%" ^
+          -DCMAKE_CXX_FLAGS_ASAN="%CXXFLAGS_ASAN% -std=c++%STD%" ^
+          -DCMAKE_EXE_LINKER_FLAGS_ASAN="%LD_FLAGS_ASAN%";
     exit /B 0
 )
 
@@ -28,6 +31,11 @@ if "%1" equ "build" (
 
 if "%1" equ "test" (
     cmake --build %BUILD_PREFIX% --config %BUILD_TYPE% --target unit_tests;
+    exit /B 0
+)
+
+if "%1" equ "install" (
+    cmake --install %BUILD_PREFIX% --config %BUILD_TYPE% --target %TARGET_NAME%;
     exit /B 0
 )
 

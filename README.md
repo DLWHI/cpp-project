@@ -13,7 +13,6 @@ List of options:
 - ```INSTALL_PREFIX``` - install path (No default value)  
 - ```TARGET_NAME``` - target name to build (Default: cpp-project)  
 - ```BUILD_TYPE``` - build type or configuration, depends on detected generator (Default: Debug)  
-- ```STD``` - cpp standart (Default: 20)
 - ```CMAKE_MODULES_DIR``` - cmake module scripts folder (cmake folder of project
 added automatically to this list)  
 - ```CMAKE_CONFIGURATIONS``` - semicolon separated cmake configurations/build

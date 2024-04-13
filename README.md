@@ -16,7 +16,7 @@ These are platform independent options such as project name, build type and etc.
 
 ## Platform/Compiler specific options
 
-CMake automatically loads all the variables stored in opt_win.cfg/opt_unix.cfg
+CMake automatically loads all the variables stored in ```opt_win.cfg```/```opt_unix.cfg```
 to CMake cache so it would use them to configure project build. Currently
 major platforms as Windows, Linux and Apple-Darwin are supported, but one can
 create own opt file and edit ```cmake/SetPlatformFlags.cmake``` file to upload

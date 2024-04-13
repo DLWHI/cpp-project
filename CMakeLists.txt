@@ -16,11 +16,14 @@ set(TEST_SOURCES
     tests/phony_test.cc
 )
 
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+set(CMAKE_MODULE_PATH 
+    ${CMAKE_SOURCE_DIR}/cmake
+)
 
 set(INSTALL_GTEST OFF)
 
 include(EnableGoogleTest)
+include(SetPlatformFlags)
 include(CTest)
 
 install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/sp)

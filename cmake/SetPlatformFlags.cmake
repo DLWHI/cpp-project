@@ -21,7 +21,7 @@ endfunction()
 load_vars(project.cfg)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-  load_vars(opt_win.cfg)
+  load_vars(opt_msvc.cfg)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang"
        OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   load_vars(opt_unix.cfg)

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 BUILD_PREFIX="build-$(uname)";
 if [ $# -ne 1 ]; then
     echo "proj: unknown action specified";

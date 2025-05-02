@@ -20,10 +20,10 @@ set(CMAKE_MODULE_PATH
 
 set(INSTALL_GTEST OFF)
 
-include(SetGlobalDefines)
-include(SetPlatformFlags)
 include(EnableGoogleTest)
 include(CTest)
+include(SetGlobalDefines)
+include(SetPlatformFlags)
 
 install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/)
 

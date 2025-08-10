@@ -15,7 +15,7 @@ else
     COMPILER_CONFIG+=" -DCPU_ENDIANNES=PROJ_BIG_ENDIAN"
 fi
 
-if [[ ! -z "$BUILD_GENERATOR" ]] && ![[ ! -z "$MAKE_PROGRAM" ]]; then
+if [[ ! -z "$BUILD_GENERATOR" ]] && [[ ! -z "$MAKE_PROGRAM" ]]; then
   COMPILER_CONFIG+=" -G \"$BUILD_GENERATOR\""
   COMPILER_CONFIG+=" -DCMAKE_MAKE_PROGRAM=$MAKE_PROGRAM"
 fi
@@ -47,8 +47,8 @@ elif [ $1 = "clean" ]; then
     rm -rf ${BUILD_PREFIX};
 else
     echo "proj: unknown option"
-    exit 1;
+ i   exit 1;
 fi;
 
-exit $?i;
+exit $?;
 

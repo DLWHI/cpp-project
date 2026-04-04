@@ -10,10 +10,13 @@ function(LOAD_VARS FILE)
       # Find variable name
       string(REGEX MATCH "^[^=]+" NAME "${NAME_AND_VALUE}")
       # Find the value
-      string(REPLACE "${NAME}=" "" VALUE "${NAME_AND_VALUE}")
+      string(REPLACE "${NAME}=" "" QUOTED_VALUE "${NAME_AND_VALUE}")
+      string(REPLACE "\"" "" VALUE "${QUOTED_VALUE}")
       # Set the variable
-      set(${NAME} "${VALUE}" CACHE STRING "" FORCE)
-      set(OPTS "${OPTS}\n${NAME}=${VALUE}")
+      if (NOT "${VALUE}" STREQUAL "")
+        set(${NAME} "${VALUE}" CACHE STRING "" FORCE)
+        set(OPTS "${OPTS}\n${NAME}=${VALUE}")
+      endif()
     endforeach()
     message(STATUS "${OPTS}")
 endfunction()
@@ -22,7 +25,8 @@ load_vars(project.cfg)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   load_vars(opt_msvc.cfg)
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang"
-       OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-  load_vars(opt_unix.cfg)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+  load_vars(opt_gcc.cfg)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  load_vars(opt_clang.cfg)
 endif()

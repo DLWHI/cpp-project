@@ -15,10 +15,9 @@ function(LOAD_VARS FILE)
       # Set the variable
       if (NOT "${VALUE}" STREQUAL "")
         set(${NAME} "${VALUE}" CACHE STRING "" FORCE)
-        set(OPTS "${OPTS}\n${NAME}=${VALUE}")
       endif()
+      message(STATUS "    ${NAME}=${VALUE}")
     endforeach()
-    message(STATUS "${OPTS}")
 endfunction()
 
 function(SET_PROJECT_OPTIONS)
